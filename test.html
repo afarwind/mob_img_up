@@ -66,8 +66,6 @@
 						image.width *= options.max_height / image.height;
 						image.height = options.max_height;
 					}
-
-
 					// 获取 canvas DOM 对象
 					var canvas = document.getElementById("myCanvas");
 					//var canvas = document.createElement('canvas');
@@ -81,9 +79,8 @@
 					canvas.height = image.height;
 					// 将图像绘制到canvas上
 					ctx.drawImage(image, 0, 0, image.width, image.height);
-					// !!! 注意，image 没有加入到 dom之中
 
-					//生成base64
+					//生成base64，指定图片格式为jpeg
 					var base64 = canvas.toDataURL("image/jpeg", options.quality || 0.8);
                     var result = {
                         base64: base64,
