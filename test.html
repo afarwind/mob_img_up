@@ -67,8 +67,8 @@
 						image.height = options.max_height;
 					}
 					// 获取 canvas DOM 对象
-					var canvas = document.getElementById("myCanvas");
-					//var canvas = document.createElement('canvas');
+					//var canvas = document.getElementById("myCanvas");
+					var canvas = document.createElement('canvas');
 					// 获取 canvas的 2d 环境对象,
 					// 可以理解Context是管理员，canvas是房子
 					var ctx = canvas.getContext("2d");
@@ -123,12 +123,12 @@
         	$("#upload_file_0").localResizeIMG({
         		max_height: 100,
 		       	quality: 0.1,
-		        //before: function (that, blob) {},
+		        before: function (that, blob) {},
 		        success: function (result) {
-		            // var img = new Image();
-		            // img.src = result.base64;
-		            // $('body').append(img);
-		            // console.log(result);
+		             var img = new Image();
+		             img.src = result.base64;
+		             $('body').append(img);
+		             console.log(result);
 		        }
         		
         	});
