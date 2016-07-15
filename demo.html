@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
+        <meta name="Copyright" Content=""/>
+        <meta name="author" content="AfarWind Z">
+        <meta name="Keywords" content=""/>
+        <meta name="Description" content=""/>
+        <title></title>
+    </head>
+    <body>
+
+
+    <form action="upload.php" method="post" >
+        <div class="up_img">
+            <input type="file" class="upload_file" id="upload_file_0" name="upload_file[]" />
+        </div>
+
+        <canvas id="myCanvas"></canvas>
+    </form>
+
+
+
+    <script src="scripts/zepto.min.js" type="text/javascript"></script>
+    <script src="scripts/exif.js" type="text/javascript"></script>
+    <script src="scripts/jpegencoder.js" type="text/javascript"></script>
+    <script src="scripts/megapix-image.js" type="text/javascript"></script>
+    <script src="scripts/local_resize_img.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+
+        $(function(){
+
+        	$("#upload_file_0").LocalResizeIMG({
+		       	quality: 0.8,
+		        before: function (that, blob) {},
+		        success: function (result) {
+		             var img = new Image();
+		             img.src = result.base64;
+		             $('body').append(img);
+		             console.log(result);
+		        }
+
+        	});
+        });
+
+
+
+    </script>
+    </body>
+</html>
